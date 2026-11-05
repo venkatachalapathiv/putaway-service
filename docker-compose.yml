@@ -1,0 +1,16 @@
+services:
+  putaway-db:
+    image: postgres:16
+    container_name: wms-putaway-db
+    environment:
+      POSTGRES_DB: putaway-service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: venkat
+    ports:
+      - "5432:5432"
+    volumes:
+      - putaway-postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  putaway-postgres-data:
